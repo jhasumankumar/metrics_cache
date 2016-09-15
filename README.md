@@ -4,8 +4,10 @@ It uses
 - 1.  Coherence 12.2.1 (You can jar to your local repo to test)
 - 2.  Hazalcast 3.7
 - 3.  Spring Boot 1.4.0.RELEASE
-- 4. Java 8 (Some code that is old like loops and combination of generics and non-generics) :)
+- 4.  Java 8 (Some code that is old like loops and combination of generics and non-generics) :)
 - 5.  Hsqldb 2.3.3
+- 6.  Dropwizard 2.3.3
+- 7.  Spring Boot Actuator 
 
 
 It creates write behind cache and stores in DB from both Coherence and Hazalcast cache store. You can say it's wrong as same data is inserted twice but it's just a learning project
