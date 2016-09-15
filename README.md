@@ -15,7 +15,9 @@ It creates write behind cache and stores in DB from both Coherence and Hazalcast
 # Create Coherence cache factory use - 
 
 -- context is a reference of ApplicationContext
-```
+
+
+```java
  ExtensibleConfigurableCacheFactory.Dependencies deps =
                 ExtensibleConfigurableCacheFactory.DependenciesHelper.newInstance("cache-config.xml");
         ExtensibleConfigurableCacheFactory factory =
@@ -35,16 +37,14 @@ It creates write behind cache and stores in DB from both Coherence and Hazalcast
 - Simple TSDB dummy API in real environment it will be TSDB API that will be executed But here I have used below code to configure it-
 - 
 
-```
+ ```java
  public GaugeWriter openTsdbMetricWriter() {
         OpenTsdbGaugeWriter writer = new OpenTsdbGaugeWriter();
        - writer.setUrl(applicationConfiguration.getTsdbUrl()); // TSDB REST path
         writer.setNamingStrategy(namingStrategy());
         return writer;
     }
- 
- 
-   @POST
+    @POST
     @Path("/tsdb/put")
     public Map sendMetrics(List<OpenTsdbData> snapshot) {
         for (OpenTsdbData op : snapshot) {
@@ -53,6 +53,7 @@ It creates write behind cache and stores in DB from both Coherence and Hazalcast
 
         return new HashMap<>();
       }
+      
    ```
  
 
