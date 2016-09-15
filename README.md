@@ -33,7 +33,7 @@ It creates write behind cache and stores in DB from both Coherence and Hazalcast
 # TSDB
 
 - Simple TSDB dummy API - 
-- @POST
+-   @POST
     @Path("/tsdb/put")
     public Map sendMetrics(List<OpenTsdbData> snapshot) {
         for (OpenTsdbData op : snapshot) {
