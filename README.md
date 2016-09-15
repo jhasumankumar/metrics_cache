@@ -36,12 +36,11 @@ It creates write behind cache and stores in DB from both Coherence and Hazalcast
 ```
  public GaugeWriter openTsdbMetricWriter() {
         OpenTsdbGaugeWriter writer = new OpenTsdbGaugeWriter();
-        writer.setUrl(applicationConfiguration.getTsdbUrl());
+       - writer.setUrl(applicationConfiguration.getTsdbUrl()); // TSDB REST path
         writer.setNamingStrategy(namingStrategy());
         return writer;
     }
-    ```
-```
+
    @POST
     @Path("/tsdb/put")
     public Map sendMetrics(List<OpenTsdbData> snapshot) {
