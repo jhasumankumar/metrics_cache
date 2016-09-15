@@ -12,6 +12,9 @@ It uses
 It creates write behind cache and stores in DB from both Coherence and Hazalcast cache store. You can say it's wrong as same data is inserted twice but it's just a learning project
 
 # Create Coherence cache factory use - 
+
+-- context is a reference of ApplicationContext
+
  ExtensibleConfigurableCacheFactory.Dependencies deps =
                 ExtensibleConfigurableCacheFactory.DependenciesHelper.newInstance("cache-config.xml");
         ExtensibleConfigurableCacheFactory factory =
@@ -19,12 +22,12 @@ It creates write behind cache and stores in DB from both Coherence and Hazalcast
         // this.cacheFactory = CacheFactory.getCacheFactoryBuilder().getConfigurableCacheFactory("cache-config.xml", classLoader);
         factory.getResourceRegistry().registerResource(BeanFactory.class, SpringNamespaceHandler.DEFAULT_FACTORY_NAME, context);
         
+    # Hazalcast cache store config in cache-config.xm 
         
-        
- # Hazalcast cache store config - 
-  - <hz:map name="store" >
+ # Hazalcast cache store config in application-context.xml - 
+  - hz:map name="store" >
                 <hz:map-store  enabled="true" implementation="hazalcastUserCacheStore"
-                              write-delay-seconds="0" />
+                              write-delay-seconds="0" 
 
 
 # Add below arduments to run application and check Jconsole
