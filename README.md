@@ -40,8 +40,9 @@ It creates write behind cache and stores in DB from both Coherence and Hazalcast
         writer.setNamingStrategy(namingStrategy());
         return writer;
     }
-```
+   ```
 Rest API 
+
 ```
    @POST
     @Path("/tsdb/put")
@@ -51,8 +52,8 @@ Rest API
         }
 
         return new HashMap<>();
-    }
-```
+      }
+   ```
  
 
 
