@@ -15,14 +15,14 @@ It creates write behind cache and stores in DB from both Coherence and Hazalcast
 # Create Coherence cache factory use - 
 
 -- context is a reference of ApplicationContext
-
+```
  ExtensibleConfigurableCacheFactory.Dependencies deps =
                 ExtensibleConfigurableCacheFactory.DependenciesHelper.newInstance("cache-config.xml");
         ExtensibleConfigurableCacheFactory factory =
                 new ExtensibleConfigurableCacheFactory(deps);
         // this.cacheFactory = CacheFactory.getCacheFactoryBuilder().getConfigurableCacheFactory("cache-config.xml", classLoader);
         factory.getResourceRegistry().registerResource(BeanFactory.class, SpringNamespaceHandler.DEFAULT_FACTORY_NAME, context);
-        
+      ```  
     # Coherence cache store config in cache-config.xm 
         
  # Hazalcast cache store config in application-context.xml - 
@@ -32,8 +32,17 @@ It creates write behind cache and stores in DB from both Coherence and Hazalcast
 
 # TSDB
 
-- Simple TSDB dummy API - 
--   @POST
+- Simple TSDB dummy API in real environment it will be TSDB API that will be executed But here I have used below code to configure it-
+```
+ public GaugeWriter openTsdbMetricWriter() {
+        OpenTsdbGaugeWriter writer = new OpenTsdbGaugeWriter();
+        writer.setUrl(applicationConfiguration.getTsdbUrl());
+        writer.setNamingStrategy(namingStrategy());
+        return writer;
+    }
+    ```
+```
+   @POST
     @Path("/tsdb/put")
     public Map sendMetrics(List<OpenTsdbData> snapshot) {
         for (OpenTsdbData op : snapshot) {
@@ -42,7 +51,7 @@ It creates write behind cache and stores in DB from both Coherence and Hazalcast
 
         return new HashMap<>();
     }
-
+```
 
 # Add below arduments to run application and check Jconsole. I have used port JMX 7799 i.e. hardcoded to read Metrics from Jconsole and publish it to TSDB
 -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=7799 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false  -Dhazelcast.jmx=true
