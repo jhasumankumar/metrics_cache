@@ -21,8 +21,8 @@ It creates write behind cache and stores in DB from both Coherence and Hazalcast
         
         
         
-  Hazalcast cache store config - 
-   <hz:map name="store" >
+ # Hazalcast cache store config - 
+  - <hz:map name="store" >
                 <hz:map-store  enabled="true" implementation="hazalcastUserCacheStore"
                               write-delay-seconds="0" />
 
