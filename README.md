@@ -23,7 +23,7 @@ It creates write behind cache and stores in DB from both Coherence and Hazalcast
         // this.cacheFactory = CacheFactory.getCacheFactoryBuilder().getConfigurableCacheFactory("cache-config.xml", classLoader);
         factory.getResourceRegistry().registerResource(BeanFactory.class, SpringNamespaceHandler.DEFAULT_FACTORY_NAME, context);
         
-    # Hazalcast cache store config in cache-config.xm 
+    # Coherence cache store config in cache-config.xm 
         
  # Hazalcast cache store config in application-context.xml - 
   - hz:map name="store" >
