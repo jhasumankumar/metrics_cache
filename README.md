@@ -65,5 +65,6 @@ It creates write behind cache and stores in DB from both Coherence and Hazalcast
 Use rest client too test  -
 
 - GET method - http://localhost:9810/metrics/user/1
-- POST method - http://localhost:9810/metrics/user - consumes - Consumes(MediaType.APPLICATION_FORM_URLENCODED) Add 2 paramaters      - 1: username 
+- POST method - http://localhost:9810/metrics/user - consumes - Consumes(MediaType.APPLICATION_FORM_URLENCODED) Add 2 paramaters     
+- 1: username 
 - 2: id
