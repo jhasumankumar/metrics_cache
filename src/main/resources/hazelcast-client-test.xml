@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<hazelcast-client xsi:schemaLocation="http://www.hazelcast.com/schema/client-config hazelcast-client-config-3.7.xsd"
+                  xmlns="http://www.hazelcast.com/schema/client-config"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+    <group>
+        <name>dev</name>
+        <password>dev-pass</password>
+    </group>
+
+    <network>
+        <cluster-members>
+            <address>127.0.0.1</address>
+            <address>127.0.0.1:5701</address>
+        </cluster-members>
+        <smart-routing>true</smart-routing>
+        <redo-operation>true</redo-operation>
+        <socket-interceptor enabled="true">
+            <class-name>com.hazelcast.XYZ</class-name>
+            <properties>
+                <property name="kerberos-host">kerb-host-name</property>
+                <property name="kerberos-config-file">kerb.conf</property>
+            </properties>
+        </socket-interceptor>
+
+</network>
+
+</hazelcast-client>

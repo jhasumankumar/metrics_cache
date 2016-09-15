@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:hz="http://www.hazelcast.com/schema/spring"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation=
+               "http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+              http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+              http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+              http://www.hazelcast.com/schema/spring http://www.hazelcast.com/schema/spring/hazelcast-spring.xsd">
+
+    <context:annotation-config />
+
+   <hz:hazelcast id="instance">
+        <hz:config>
+            <hz:spring-aware />
+            <hz:group name="dev" password="password"/>
+            <hz:network port="5701" port-auto-increment="false">
+                <hz:join>
+                    <hz:multicast enabled="true" multicast-group="225.1.2.4" multicast-port="11011"/>
+                    <hz:tcp-ip enabled="false">
+                        <hz:members>10.62.25.3</hz:members>
+                    </hz:tcp-ip>
+                </hz:join>
+            </hz:network>
+
+            <hz:map name="store" >
+                <hz:map-store  enabled="true" implementation="hazalcastUserCacheStore"
+                              write-delay-seconds="0" />
+            </hz:map>
+
+
+        </hz:config>
+    </hz:hazelcast>
+
+    <hz:client id="client">
+        <hz:group name="dev" password="password"/>
+        <hz:network>
+            <hz:member>127.0.0.1:5701</hz:member>
+        </hz:network>
+    </hz:client>
+
+    <hz:map id="map" instance-ref="instance" name="Map" lazy-init="false"/>
+    <hz:multiMap id="multiMap" instance-ref="instance" name="Multimap"/>
+    <hz:replicatedMap id="replicatedMap" instance-ref="instance" name="ReplicatedMap"/>
+    <hz:queue id="queue" instance-ref="instance" name="Queue"/>
+    <hz:topic id="topic" instance-ref="instance" name="Topic" depends-on="instance, client"/>
+    <hz:set id="set" instance-ref="instance" name="Set"/>
+    <hz:list id="list" instance-ref="instance" name="List"/>
+    <hz:executorService id="executorService" instance-ref="instance" name="ExecutorService"/>
+    <hz:idGenerator id="idGenerator" instance-ref="instance" name="IdGenerator"/>
+    <hz:atomicLong id="atomicLong" instance-ref="instance" name="atomicLong"/>
+    <hz:atomicReference id="atomicReference" instance-ref="instance" name="atomicReference"/>
+    <hz:countDownLatch id="countDownLatch" instance-ref="instance" name="countDownLatch"/>
+    <hz:semaphore id="semaphore" instance-ref="instance" name="semaphore"/>
+    <hz:lock id="lock" instance-ref="instance" name="lock"/>
+
+
+</beans>

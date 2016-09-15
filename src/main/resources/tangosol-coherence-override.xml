@@ -1,0 +1,62 @@
+<?xml version='1.0'?>
+
+<coherence xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns="http://xmlns.oracle.com/coherence/coherence-operational-config"
+           xsi:schemaLocation="http://xmlns.oracle.com/coherence/coherence-operational-config coherence-operational-config.xsd"
+           xml-override="../common/tangosol-coherence-override.xml">
+		   
+
+    <cluster-config>
+        <member-identity>
+            <cluster-name>Metrics-Test</cluster-name>
+            <site-name>Metrics-Site</site-name>
+        </member-identity>
+        <unicast-listener>
+            <port>11001</port>
+        </unicast-listener>
+        <multicast-listener>
+            <address>225.1.2.3</address>
+            <port system-property="tangosol.coherence.clusterport">11010</port>
+            <time-to-live>0</time-to-live>
+            <join-timeout-milliseconds>3000</join-timeout-milliseconds>
+        </multicast-listener>
+        <services>
+            <service id="3">
+                <service-type>DistributedCache</service-type>
+                <service-component>PartitionedService.PartitionedCache</service-component>
+                <init-params>
+                    <init-param id="3">
+                        <param-name>partition-count</param-name>
+                        <param-value>263</param-value>
+                    </init-param>
+                </init-params>
+            </service>
+        </services>
+    </cluster-config>    
+
+    <logging-config>
+        <!-- 
+        0     - only output without a logging severity level specified will be logged
+        1     - all the above plus errors
+        2     - all the above plus warnings
+        3     - all the above plus informational messages
+        4-9 - all the above plus internal debugging messages (the higher the number, the more the messages)
+        -1   - no messages 
+         -->    
+        <severity-level system-property="tangosol.coherence.log.level">3</severity-level>
+        <character-limit system-property="tangosol.coherence.log.limit">0</character-limit>
+    </logging-config>
+
+    <management-config>
+        <!--
+        Note: Setting this value to 'local-only', 'remote-only or 'all' will require the
+        javax.management.* classes be available on the classpath.
+        -->
+        <managed-nodes system-property="tangosol.coherence.management">local-only</managed-nodes>
+    </management-config>
+
+    <license-config>
+        <edition-name>EE</edition-name>
+    </license-config>
+
+</coherence>
