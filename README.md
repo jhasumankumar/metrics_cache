@@ -1,5 +1,4 @@
-#    Metrics Cache
-Sbring Boot that publishes metrics to TSDB dummy client integrated with Coherence and Hazelcast.
+#    Metrics Cache Sbring Boot that publishes metrics to TSDB dummy client integrated with Coherence and Hazelcast.
 
 It uses 
 1. Coherence 12.2.1 (You can jar to your local repo to test)
