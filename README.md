@@ -58,11 +58,12 @@ It creates write behind cache and stores in DB from both Coherence and Hazalcast
  
 
 
-# Add below arduments to run application and check Jconsole. I have used port JMX 7799 i.e. hardcoded to read Metrics from Jconsole and publish it to TSDB
+# Add below VM arguments to run application and check Jconsole. I have used port JMX 7799 i.e. hardcoded to read Metrics from Jconsole and publish it to TSDB
 -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=7799 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false  -Dhazelcast.jmx=true
 
 # Test
 Use rest client too test  -
 
 - GET method - http://localhost:9810/metrics/user/1
-- POST method - http://localhost:9810/metrics/user - consumes - Consumes(MediaType.APPLICATION_FORM_URLENCODED) Add 2 paramaters username and id
+- POST method - http://localhost:9810/metrics/user - consumes - Consumes(MediaType.APPLICATION_FORM_URLENCODED) Add 2 paramaters      - 1: username 
+- 2: id
