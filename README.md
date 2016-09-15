@@ -33,6 +33,8 @@ It creates write behind cache and stores in DB from both Coherence and Hazalcast
 # TSDB
 
 - Simple TSDB dummy API in real environment it will be TSDB API that will be executed But here I have used below code to configure it-
+- 
+
 ```
  public GaugeWriter openTsdbMetricWriter() {
         OpenTsdbGaugeWriter writer = new OpenTsdbGaugeWriter();
@@ -40,10 +42,8 @@ It creates write behind cache and stores in DB from both Coherence and Hazalcast
         writer.setNamingStrategy(namingStrategy());
         return writer;
     }
-   ```
-Rest API 
-
-```
+ 
+ 
    @POST
     @Path("/tsdb/put")
     public Map sendMetrics(List<OpenTsdbData> snapshot) {
