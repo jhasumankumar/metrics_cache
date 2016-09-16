@@ -10,7 +10,7 @@ It uses
 - 7.  Spring Boot Actuator 
 
 
-It creates write behind cache and stores in DB from both Coherence and Hazalcast cache store. You can say it's wrong as same data is inserted twice but it's just a learning project
+This application creates write behind cache and stores in DB from both Coherence and Hazalcast cache store. You can say it's wrong as same data is inserted twice but it's just a learning project
 
 # Create Coherence cache factory use - 
 
@@ -62,7 +62,7 @@ It creates write behind cache and stores in DB from both Coherence and Hazalcast
 -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=7799 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false  -Dhazelcast.jmx=true
 
 # Test
-Use rest client too test  -
+Use rest client to test  -
 
 - GET method - http://localhost:9810/metrics/user/1
 - POST method - http://localhost:9810/metrics/user - consumes - Consumes(MediaType.APPLICATION_FORM_URLENCODED) Add 2 paramaters     
