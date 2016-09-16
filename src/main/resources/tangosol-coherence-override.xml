@@ -35,23 +35,13 @@
     </cluster-config>    
 
     <logging-config>
-        <!-- 
-        0     - only output without a logging severity level specified will be logged
-        1     - all the above plus errors
-        2     - all the above plus warnings
-        3     - all the above plus informational messages
-        4-9 - all the above plus internal debugging messages (the higher the number, the more the messages)
-        -1   - no messages 
-         -->    
+    
         <severity-level system-property="tangosol.coherence.log.level">3</severity-level>
         <character-limit system-property="tangosol.coherence.log.limit">0</character-limit>
     </logging-config>
 
     <management-config>
-        <!--
-        Note: Setting this value to 'local-only', 'remote-only or 'all' will require the
-        javax.management.* classes be available on the classpath.
-        -->
+     
         <managed-nodes system-property="tangosol.coherence.management">local-only</managed-nodes>
     </management-config>
 
