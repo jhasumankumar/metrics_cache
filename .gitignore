@@ -1,0 +1,17 @@
+.idea
+*.iml
+.mvn
+*.ipr
+*.iws
+*.log
+*.log.*
+*.logs
+*.logs.*
+log/
+logs/
+*.cache/
+.gradle/
+target/
+build/
+data/
+vendor/*
