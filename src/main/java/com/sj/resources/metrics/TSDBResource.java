@@ -27,7 +27,6 @@ public class TSDBResource {
         for (OpenTsdbData op : snapshot) {
            LOG.info("Metrics Name -"+op.getMetric(),"Metrics value-"+op.getValue());
         }
-
         return new HashMap<>();
     }
 

@@ -107,10 +107,7 @@ public class MetricsClientConfig {
     }
 
     private Map<String, Metric> registerMbeans(Map<String, Metric> metrics) {
-        //final JmxReporter jmxReporter = JmxReporter.forRegistry(metricRegistry).build();
-        //  jmxReporter.start();
         connect();
-
         try {
             Set<ObjectInstance> objectInstances = mbsc.queryMBeans(null, null);
             for (ObjectInstance objectInstance : objectInstances) {
@@ -131,5 +128,4 @@ public class MetricsClientConfig {
         }
         return metrics;
     }
-
 }

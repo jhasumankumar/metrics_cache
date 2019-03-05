@@ -32,7 +32,6 @@ public class HazelcastDistributedCacheManager implements DistributedCacheManager
 
     }
 
-
     public void afterPropertiesSet() throws Exception {
         this.hazelcastInstance = (HazelcastInstance)this.context.getBean("instance");
         final Collection<DistributedObject> distributedObjects = this.hazelcastInstance.getDistributedObjects();
@@ -57,7 +56,6 @@ public class HazelcastDistributedCacheManager implements DistributedCacheManager
                 }
             }
         }
-
         return caches.get(cacheName);
     }
 

@@ -4,7 +4,6 @@
            xmlns="http://xmlns.oracle.com/coherence/coherence-operational-config"
            xsi:schemaLocation="http://xmlns.oracle.com/coherence/coherence-operational-config coherence-operational-config.xsd"
            xml-override="../common/tangosol-coherence-override.xml">
-		   
 
     <cluster-config>
         <member-identity>
@@ -41,7 +40,6 @@
     </logging-config>
 
     <management-config>
-     
         <managed-nodes system-property="tangosol.coherence.management">local-only</managed-nodes>
     </management-config>
 

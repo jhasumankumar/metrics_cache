@@ -24,8 +24,6 @@ public class CoherenceUserCacheStore extends Base implements CacheStore {
     @Autowired
     private UserAddressDao userAddressDao;
 
-
-
     @Override
     @Transactional
     public void store(final Object key, final Object value) {
